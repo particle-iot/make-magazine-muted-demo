@@ -29,7 +29,10 @@
 #include "Particle.h"
 #include <_You_re_Muted__inferencing.h>
 
+SerialLogHandler logHandler(LOG_LEVEL_INFO);
 SYSTEM_THREAD(ENABLED);
+STARTUP(Keyboard.begin());
+
 
 /* Forward declerations ---------------------------------------------------- */
 static bool microphone_inference_start(uint32_t n_samples);
@@ -52,17 +55,23 @@ static signed short *sampleBuffer;
 static bool debug_nn = false; // Set this to true to see e.g. features generated from the raw signal
 static int print_results = -(EI_CLASSIFIER_SLICES_PER_MODEL_WINDOW);
 
+void generateKeystrokes() 
+{
+    Log.info("Sending key");
+
+    // Keyboard.click(KEY_A, MOD_LEFT_COMMAND | MOD_LSHIFT); // Mac
+    Keyboard.click(KEY_A, MOD_LALT); // Windows                
+}
+
 /**
  * @brief      Arduino setup function
  */
 void setup()
 {
-    delay(2000);
-
     // put your setup code here, to run once:
-    Serial.begin(115200);
+    Serial.begin();
     // comment out the below line to cancel the wait for USB connection (needed for native USB)
-    while (!Serial);
+    // while (!Serial);
     Serial.println("Edge Impulse Inferencing Demo");
 
     // summary of inferencing settings (from model_metadata.h)
@@ -115,6 +124,11 @@ void loop()
 #if EI_CLASSIFIER_HAS_ANOMALY == 1
         ei_printf("    anomaly score: %.3f\n", result.anomaly);
 #endif
+        for (size_t ix = 0; ix < EI_CLASSIFIER_LABEL_COUNT; ix++) {
+            if (strstr(result.classification[ix].label, "muted") && result.classification[ix].value > 0.8) {
+                generateKeystrokes();
+            } 
+        }        
 
         print_results = 0;
     }

@@ -5,14 +5,19 @@
 
 ![Zoom](images/zoom.png)
 
-This detector is trained to recognize the phrase "You're muted" and generate a keystroke to unmute your Zoom session. 
+This detector is trained to recognize the phrase "You're muted" and generate a keystroke to unmute your conference call session. 
 
 ## Wiring the microphone
 
-You will need the following hardware, included in the [Edge ML Kit](https://docs.particle.io/reference/datasheets/accessories/edge-ml-kit/)
+You will need the following hardware:
 
 - PDM digital microphone
 - Photon 2 (included with the Edge ML Kit)
+- Jumper wires
+
+These are included in the [Edge ML Kit](https://docs.particle.io/reference/datasheets/accessories/edge-ml-kit/) available on the [Particle retail store](https://store.particle.io/collections/wifi/products/photon-2-edge-ml-kit).
+
+You can also purchase the PDM microphone from [Adafruit](https://www.adafruit.com/product/3492). 
 
 ![PDM Microphone](images/mic-1.jpeg)
 
@@ -30,7 +35,11 @@ The pinout for the Photon 2 can be found on its [datasheet](https://docs.particl
 
 ![PDM Microphone](images/mic-3.jpeg)
 
-## Configure Zoom
+Other PDM microphones should be compatible, but the pinouts may vary. Note that PDM is different than PWM and I2S, which are different and incompatible sound interfaces.
+
+## Configure conference service
+
+These instructions are for Zoom, however all services support configuration of a keystroke for muting and unmuting in a similar fashion.
 
 Open the Settings in Zoom. Then select Keyboard Shortcuts. Find **Mute/Unmute my Audio**. Note the key sequence, and you will probably want to check the box for Enable Global Shortcut. The default is typically Command-Shift-A on the Mac and Alt-A on Windows.
 
@@ -76,11 +85,16 @@ Replace "MyPhoton" with the name of your device. If you aren't sure what you nam
 To build your own binary:
 
 - Use **Particle: Configure Project For Device** and select **deviceOS@5.5.0** and **P2**. The P2 option is also used for the Photon 2. Device OS 5.4.1 or later is required for this demo.
-- In src/main.cpp, you'll need to configure the keyboard shortcut to what was set above. 
+- In src/make-magazine-muted-demo.cpp, you'll need to configure the keyboard shortcut in the function`generateKeystrokes()` near the top of the file.
 
 ```cpp
-// Keyboard.click(KEY_A, MOD_LEFT_COMMAND | MOD_LSHIFT); // Mac
-Keyboard.click(KEY_A, MOD_LALT); // Windows                
+void generateKeystrokes() 
+{
+    Log.info("Sending key");
+    
+    // Keyboard.click(KEY_A, MOD_LEFT_COMMAND | MOD_LSHIFT); // Mac
+    Keyboard.click(KEY_A, MOD_LALT); // Windows                
+}
 ```
 
 - Use **Particle: Cloud Flash** to compile and flash the code to your device.
