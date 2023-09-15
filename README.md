@@ -3,7 +3,7 @@
 *Particle "You're Muted" detector using microphone and Edge Impulse Edge ML*
 
 
-![Zoom](images/zoom.png)
+![PDM Microphone](images/breadboard.png)
 
 This detector is trained to recognize the phrase "You're muted" and generate a keystroke to unmute your conference call session. 
 
@@ -15,11 +15,10 @@ You will need the following hardware:
 - Photon 2 (included with the Edge ML Kit)
 - Jumper wires
 
-These are included in the [Edge ML Kit](https://docs.particle.io/reference/datasheets/accessories/edge-ml-kit/) available on the [Particle retail store](https://store.particle.io/collections/wifi/products/photon-2-edge-ml-kit).
-
 You can also purchase the PDM microphone from [Adafruit](https://www.adafruit.com/product/3492). 
 
-![PDM Microphone](images/mic-1.jpeg)
+The [Edge ML Kit](https://docs.particle.io/reference/datasheets/accessories/edge-ml-kit/) available on the [Particle retail store](https://store.particle.io/collections/wifi/products/photon-2-edge-ml-kit) also includes all of the necessary parts.
+
 
 The connections on the breakout are:
 
@@ -33,7 +32,7 @@ The connections on the breakout are:
 
 The pinout for the Photon 2 can be found on its [datasheet](https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/#pin-markings).
 
-![PDM Microphone](images/mic-3.jpeg)
+![PDM Microphone](images/diagram.png)
 
 Other PDM microphones should be compatible, but the pinouts may vary. Note that PDM is different than PWM and I2S, which are different and incompatible sound interfaces.
 
@@ -51,13 +50,21 @@ The first time you connect the Photon 2 running this firmware on the Mac, you ma
 
 ![Keyboard type](images/keyboard-type.png)
 
-## Install Particle Workbench
+## Automatic setup
+
+Plug your Photon 2 module into your computer - Linux/Mac/Windows are all supported. Boot up the Chrome web browser on your computer and navigate over to https://particle.io/makemagazine2023.
+
+This web page will walk you through programming the Photon 2 directly from within your browser environment, connecting over WebUSB. Note, you will be prompted to set-up a Particle account if you want to benefit from the platform features (such as over the air programming), but it’s not required for the initial flashing of your Photon 2.
+
+## Manual setup
+
+### Install Particle Workbench
 
 If you have not already done so, install [Particle Workbench](https://docs.particle.io/workbench/), the integrated development for Particle devices for Windows, Linux, and Mac.
 
 For a new install be sure to log into your Particle account. From the command palette (Ctrl-Shift-P on Windows and Linux or Cmd-Shift-P on Mac). Select **Particle: Login**.
 
-## Running pre-built demos
+### Running pre-built demos
 
 The easiest way to get started is to download [this repository](https://github.com/particle-iot/make-magazine-muted-demo) from Github, using your favorite Github client or downloading and extracting the .zip file.
 
@@ -80,7 +87,7 @@ particle flash MyPhoton firmware-mac.bin
 Replace "MyPhoton" with the name of your device. If you aren't sure what you named it, use `particle list`.
 
 
-## Building the software
+### Building the software
 
 To build your own binary:
 
