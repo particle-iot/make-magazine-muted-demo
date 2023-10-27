@@ -2,6 +2,7 @@
 
 *Particle "You're Muted" detector using microphone and Edge Impulse Edge ML*
 
+Full instructions can be found at [Automatic Unmuting: Unlocking the Power of Edge Machine Learning](https://www.particle.io/makemagazine2023/) as eatured in Make Magazine 2023.
 
 ![PDM Microphone](images/breadboard.png)
 
