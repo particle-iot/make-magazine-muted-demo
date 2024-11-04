@@ -1,0 +1,19 @@
+id: particle/youre-muted
+category: application
+icon: particle.png
+gitrepo: https://github.com/particle-iot/make-magazine-muted-demo
+name: "You're Muted"
+shortDescription: "Application to detect the phrase You're Muted and generate keystrokes to unmute Zoom or similar applications"
+version: 1.0.2
+models: []
+language: [ "Particle Wiring" ]
+cloudServices: [ ]
+integrations: [ "edge-impulse" ]
+hardwareDependencies:
+  - name: Particle Photon 2
+    link: https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/
+description: |
+  Demonstrates:
+  - Connecting a PDM microphone to the Photon 2
+  - Doing work recognition with Edge Impulse
+  - Generating keystrokes over USB serial
