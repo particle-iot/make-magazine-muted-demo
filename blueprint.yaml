@@ -10,8 +10,9 @@ language: [ "Particle Wiring" ]
 cloudServices: [ ]
 integrations: [ "edge-impulse" ]
 hardwareDependencies:
-  - name: Particle Photon 2
-    link: https://docs.particle.io/reference/datasheets/wi-fi/photon-2-datasheet/
+  - name: Photon 2
+    link: https://store.particle.io/collections/all-products?filter.p.product_type=Development%20Boards
+    tags: [ "Photon 2" ]
 description: |
   Demonstrates:
   - Connecting a PDM microphone to the Photon 2
