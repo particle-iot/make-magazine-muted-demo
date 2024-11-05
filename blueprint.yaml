@@ -2,8 +2,8 @@ id: particle/youre-muted
 category: application
 icon: particle.png
 gitrepo: https://github.com/particle-iot/make-magazine-muted-demo
-name: "You're Muted"
-shortDescription: "Application to detect the phrase You're Muted and generate keystrokes to unmute Zoom or similar applications"
+name: "You're muted"
+shortDescription: Application to detect the phrase "You're muted" and send a keystroke to unmute Zoom or similar applications.
 version: 1.0.2
 models: []
 language: [ "Particle Wiring" ]
@@ -14,7 +14,13 @@ hardwareDependencies:
     link: https://store.particle.io/collections/all-products?filter.p.product_type=Development%20Boards
     tags: [ "Photon 2" ]
 description: |
-  Demonstrates:
-  - Connecting a PDM microphone to the Photon 2
-  - Doing work recognition with Edge Impulse
-  - Generating keystrokes over USB serial
+  This application leverages the Photon 2 and Edge Impulse Machine Learning to detect the phrase "You're muted" during conference calls and automatically trigger an unmute keystroke over USB.
+
+  - Connects to a PDM microphone to capture audio signals
+  - Recognizes phrases using Edge Impulse-trained machine learning model
+  - Generates a keystroke sequence for unmuting the user's microphone on video calls
+  - Compatible with common virtual meeting software like Zoom, Google Meet, and Microsoft Teams
+  - Provides both pre-built and custom build options, allowing users to easily deploy or further customize keystrokes
+  - Photon 2 integrates with Particle's cloud platform, enabling over-the-air (OTA) updates and monitoring capabilities for connected devices
+
+  Full instructions and setup details are available on the Particle website, as featured in Make Magazine 2023.
