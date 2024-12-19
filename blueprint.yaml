@@ -16,6 +16,7 @@ integrations:
     icon: assets/edge-impulse.png
 supportedDevices:
   - name: Photon 2
+webSetupLink: https://setup.particle.io/?app=particle-youre-muted
 hardwareDependencies:
   - name: Supported device
 introduction: |
