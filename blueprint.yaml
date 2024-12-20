@@ -13,12 +13,13 @@ language: [ "Particle Wiring" ]
 cloudServices: [ ]
 integrations: 
   - name: Edge Impulse
-    icon: assets/edge-impulse.png
+    icon: assets/edge-impulse.svg
 supportedDevices:
   - name: Photon 2
 webSetupLink: https://setup.particle.io/?app=particle-youre-muted
 hardwareDependencies:
   - name: Supported device
+  - name: PDM microphone
 introduction: |
   Particle "You're Muted" detector using microphone and Edge Impulse Edge ML
 description: |
