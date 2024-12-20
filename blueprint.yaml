@@ -1,7 +1,7 @@
 slug: particle-youre-muted
 type: Application
 category: "AI and machine learning"
-expertiseLevel: "Intermediate"
+expertiseLevel: "Beginner"
 tags: ["Demo", "Audio", "Assistant", "AI", "ML"]
 icon: assets/youre-muted.svg
 gitrepo: https://github.com/particle-iot/make-magazine-muted-demo
